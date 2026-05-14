@@ -1,7 +1,12 @@
 import type { Context, SessionFlavor } from "grammy";
 
-export interface SessionData {
-    waitingFor?: boolean
+export interface Message {
+    role: "user" | "assistant";
+    content: string;
 }
 
-export type BotContext = Context & SessionFlavor<SessionData>;  
+export interface SessionData {
+    messages: Message[];
+}
+
+export type BotContext = Context & SessionFlavor<SessionData>;
